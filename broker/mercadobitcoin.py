@@ -82,6 +82,8 @@ class MercadobitcoinBroker(BrokerAbstract):
         r = requests.post(self.TRADE_ENDPOINT, data = payload, headers=headers)
         data = r.json()
 
+        print data
+
         return data['status_code'] == 100
 
 

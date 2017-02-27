@@ -87,3 +87,7 @@ class BrokerAbstract(object):
         balance = self.getBalance()
         btc_qty = balance['total'] - balance['reais']
         log.info("%s --- BTC: R$%.2f (%.2f%%) - Reais: R$%.2f (%.2f%%) - Total: R$%.2f" % (self.CODE, btc_qty, 100*(btc_qty/balance['total']), balance['reais'], 100*(balance['reais']/balance['total']), balance['total']))
+
+
+    def getGap(self, qty = 0.1):
+        return self.getPriceBuyNow(qty) - self.getPriceSellNow(qty)
